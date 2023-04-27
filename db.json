@@ -1,0 +1,15 @@
+{
+  "users": [
+    { 
+      "username": "admin", 
+      "password": "admin" 
+    }
+  ], 
+  "series": [
+    {
+      "title": "Game of thrones",
+      "season": 4,
+      "episode": 12
+    }
+  ]
+}
