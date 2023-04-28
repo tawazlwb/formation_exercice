@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs';
+import { of, switchMap, tap, throwError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private readonly BASE_URL = 'http://localhost:3000/';
+  private readonly BASE_URL = environment.apiUrl;
 
   // user: any = null;
   connected = false;
@@ -19,6 +20,11 @@ export class UserService {
         params: { username, password },
       })
       .pipe(
+        switchMap((response) => {
+          const isConnected = response.length === 1;
+          if (isConnected) return of(true);
+          else return throwError(() => new Error('No user found'));
+        }),
         tap(() => (this.connected = true))
         // tap(response => this.user = response[0])
       );

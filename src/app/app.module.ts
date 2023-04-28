@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from 'src/app/providers/routing/auth.guard';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 
@@ -18,8 +19,21 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
+    path: 'series',
+    canActivateChild: [AuthGuard],
+    children: [
+      {
+        path: 'list',
+        loadChildren: () =>
+          import('./pages/series/list-series/list-series.module').then(
+            (m) => m.ListSeriesModule
+          ),
+      },
+    ],
+  },
+  {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/series/list',
     pathMatch: 'full',
   },
 ];

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/providers/user.service';
 
 @Component({
@@ -13,14 +14,21 @@ export class LoginComponent {
     password: ['admin', [Validators.required]],
   });
 
-  constructor(private fb: FormBuilder, private service: UserService) {}
+  constructor(
+    private fb: FormBuilder,
+    private service: UserService,
+    private router: Router
+  ) {}
 
   submit() {
     if (!this.form.valid) return;
     const { password, username } = this.form.value;
 
-    this.service
-      .getUser(username!, password!)
-      .subscribe((response) => console.log(response));
+    this.service.getUser(username!, password!).subscribe({
+      next: (response) => {
+        this.router.navigateByUrl('series/list');
+      },
+      error: (error) => alert(error.message)
+    });
   }
 }
