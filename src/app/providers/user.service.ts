@@ -10,13 +10,13 @@ export class UserService {
   private readonly BASE_URL = environment.apiUrl;
 
   // user: any = null;
-  connected = false;
+  connected = true;
 
   constructor(private http: HttpClient) {}
 
   getUser(username: string, password: string) {
     return this.http
-      .get<any[]>(this.BASE_URL + 'users', {
+      .get<IUser[]>(this.BASE_URL + 'users', {
         params: { username, password },
       })
       .pipe(

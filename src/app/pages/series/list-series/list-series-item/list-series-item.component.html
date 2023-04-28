@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ serie?.title }}</mat-card-title>
+    <mat-card-subtitle>
+      S{{ serie?.season }}E{{ serie?.episode }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <img mat-card-image [src]="serie?.url" alt="Photo of a Shiba Inu" />
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" [routerLink]="['..', 'edit', serie?.id]">Update</button>
+  </mat-card-actions>
+</mat-card>

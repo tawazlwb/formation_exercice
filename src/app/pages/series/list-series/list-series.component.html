@@ -1,4 +1,3 @@
 <ng-container *ngFor="let serie of series$ | async">
-  {{ serie.title }} <br />
-  {{ serie.season }} - {{ serie.episode }} <br><br>
+  <app-list-series-item [serie]="serie"></app-list-series-item>
 </ng-container>

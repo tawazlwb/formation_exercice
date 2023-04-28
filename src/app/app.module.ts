@@ -12,6 +12,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'src/app/providers/routing/auth.guard';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
+import { EditSerieComponent } from './pages/series/edit-serie/edit-serie.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
           import('./pages/series/list-series/list-series.module').then(
             (m) => m.ListSeriesModule
           ),
+      },
+      {
+        path: 'edit/:id',
+        component: EditSerieComponent,
       },
     ],
   },

@@ -1,19 +1,26 @@
 {
   "users": [
-    { 
-      "username": "admin", 
-      "password": "admin" 
+    {
+      "username": "admin",
+      "password": "admin"
     }
-  ], 
+  ],
   "series": [
     {
+      "id": 1,
       "title": "Game of thrones",
-      "season": 4,
-      "episode": 12
-    }, {
+      "season": 2,
+      "episode": 1,
+      "url": "https://img.posterstore.com/zoom/wb0027-8gameofthrones-jonsnowonthethrone50x70.jpg",
+      "watched": true
+    },
+    {
+      "id": 2,
       "title": "The walking dead",
-      "season": 3,
-      "episode": 17
+      "season": 1,
+      "episode": 1,
+      "url": "https://static.posters.cz/image/750/affiches-et-posters/the-walking-dead-season-8-collage-i51425.jpg",
+      "watched": false
     }
   ]
 }
