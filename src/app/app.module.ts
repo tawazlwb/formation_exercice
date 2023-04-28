@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,7 +13,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'src/app/providers/routing/auth.guard';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
-import { EditSerieComponent } from './pages/series/edit-serie/edit-serie.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const routes: Routes = [
   {
@@ -26,13 +27,7 @@ const routes: Routes = [
       {
         path: 'list',
         loadChildren: () =>
-          import('./pages/series/list-series/list-series.module').then(
-            (m) => m.ListSeriesModule
-          ),
-      },
-      {
-        path: 'edit/:id',
-        component: EditSerieComponent,
+          import('./pages/series/series.module').then((m) => m.SeriesModule),
       },
     ],
   },
@@ -55,6 +50,8 @@ const routes: Routes = [
     MatButtonModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
+    MatIconModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

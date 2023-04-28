@@ -10,17 +10,25 @@
       "id": 1,
       "title": "Game of thrones",
       "season": 2,
-      "episode": 1,
+      "episode": 4,
       "url": "https://img.posterstore.com/zoom/wb0027-8gameofthrones-jonsnowonthethrone50x70.jpg",
-      "watched": true
+      "watched": false
     },
     {
       "id": 2,
       "title": "The walking dead",
       "season": 1,
-      "episode": 1,
+      "episode": 2,
       "url": "https://static.posters.cz/image/750/affiches-et-posters/the-walking-dead-season-8-collage-i51425.jpg",
-      "watched": false
+      "watched": true
+    },
+    {
+      "title": "Brooklyn 99",
+      "url": "https://cdn.shopify.com/s/files/1/0024/9803/5810/products/491839-Product-0-I-637511723946835819_1024x1024.jpg",
+      "episode": 1,
+      "season": 1,
+      "watched": false,
+      "id": 4
     }
   ]
 }

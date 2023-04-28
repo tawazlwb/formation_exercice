@@ -9,6 +9,8 @@
   <img mat-card-image [src]="serie?.url" alt="Photo of a Shiba Inu" />
 
   <mat-card-actions>
-    <button mat-raised-button color="primary" [routerLink]="['..', 'edit', serie?.id]">Update</button>
+    <button mat-raised-button color="primary" (click)="openUpdateDialog()">
+      Update
+    </button>
   </mat-card-actions>
 </mat-card>

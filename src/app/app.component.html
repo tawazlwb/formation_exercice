@@ -1,3 +1,38 @@
-<mat-toolbar color="primary"> Binge watcher </mat-toolbar>
+<mat-toolbar color="primary">
+  <span>Binge watcher </span>
+
+  <span style="flex: 1 1 100%"></span>
+
+  <button mat-icon-button (click)="openAddDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-toolbar>
 
 <router-outlet></router-outlet>
+
+<ng-template #addDialog>
+  <h1 mat-dialog-title>Add a new serie</h1>
+
+  <mat-dialog-content [formGroup]="form">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input type="text" matInput formControlName="title" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Poster URL</mat-label>
+      <input type="text" matInput formControlName="url" />
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!form.valid"
+      (click)="submit()"
+    >
+      Add serie
+    </button>
+  </mat-dialog-actions>
+</ng-template>

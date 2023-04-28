@@ -1,18 +1,18 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title> Update serie </mat-card-title>
-    <mat-card-subtitle> &nbsp; </mat-card-subtitle>
-  </mat-card-header>
+<h1 mat-dialog-title>Update serie</h1>
 
-  <mat-card-actions>
+<mat-dialog-actions>
+  <div class="actions">
     <button mat-raised-button color="primary" (click)="nextEpisode()">
       Set next episode
     </button>
     <button mat-raised-button color="primary" (click)="nextSeason()">
       Set next season
     </button>
+
+    <span style="flex: 1 1 100%"></span>
+
     <button mat-raised-button color="warn" (click)="watched()">
       Mark as watched
     </button>
-  </mat-card-actions>
-</mat-card>
+  </div>
+</mat-dialog-actions>

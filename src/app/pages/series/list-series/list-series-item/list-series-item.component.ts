@@ -1,4 +1,7 @@
 import { Component, HostBinding, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { EditSerieComponent } from 'src/app/pages/series/edit-serie/edit-serie.component';
 
 @Component({
   selector: 'app-list-series-item',
@@ -11,5 +14,18 @@ export class ListSeriesItemComponent {
   @HostBinding('style.opacity')
   get componentOpacity() {
     return this.serie?.watched ? 0.5 : 1;
+  }
+
+  constructor(private dialog: MatDialog) {}
+
+  openUpdateDialog() {
+    this.dialog
+      .open(EditSerieComponent, {
+        data: { id: this.serie?.id },
+      })
+      .afterClosed()
+      .subscribe(() => {
+        console.log('Serie updated');
+      });
   }
 }

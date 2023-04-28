@@ -19,6 +19,15 @@ export class SeriesService {
     return this.http.get<ISerie>(this.BASE_URL + 'series/' + id);
   }
 
+  createSerie(serie: Partial<ISerie>) {
+    return this.http.post<ISerie>(this.BASE_URL + 'series', {
+      ...serie,
+      episode: 1,
+      season: 1,
+      watched: false,
+    });
+  }
+
   updateSerieEpisode(id: number) {
     const serie$ = this.getSerie(id);
     const episodeNb$ = serie$.pipe(map((serie) => serie.episode + 1));
